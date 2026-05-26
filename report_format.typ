@@ -176,14 +176,14 @@
   })
 }
 
-// 画像の番号付け
-#let image_num(_) = {
-  locate(loc => {
-    let chapt = counter(heading).at(loc).at(0)
-    let c = counter("image-chapter" + str(chapt))
-    let n = c.at(loc).at(0)
-    str(chapt) + "." + str(n + 1)
-  })
+// // 画像の番号付け
+// #let image_num(_) = {
+//   locate(loc => {
+//     let chapt = counter(heading).at(loc).at(0)
+//     let c = counter("image-chapter" + str(chapt))
+//     let n = c.at(loc).at(0)
+//     str(chapt) + "." + str(n + 1)
+//   })
 }
 
 // 表形式の定義
@@ -209,7 +209,7 @@
     img,
     caption: caption,
     supplement: [Fig.],
-    numbering: image_num,
+    // numbering: image_num,
     kind: "image",
   )
 }
@@ -325,36 +325,36 @@
     }
   }
 
-  // キャプション番号のカウント
-  show figure: it => {
-    set align(center)
-    if it.kind == "image" {
-      set text(size: 1em)
-      it.body
-      it.supplement
-      " " + it.counter.display(it.numbering)
-      " " + it.caption.body
-      locate(loc => {
-        let chapt = counter(heading).at(loc).at(0)
-        let c = counter("image-chapter" + str(chapt))
-        c.step()
-      })
-    } else if it.kind == "table" {
-      set text(size: 10.5pt)
-      it.supplement
-      " " + it.counter.display(it.numbering)
-      " " + it.caption.body
-      set text(size: 10.5pt)
-      it.body
-      locate(loc => {
-        let chapt = counter(heading).at(loc).at(0)
-        let c = counter("table-chapter" + str(chapt))
-        c.step()
-      })
-    } else {
-      it
-    }
-  }
+  // // キャプション番号のカウント
+  // show figure: it => {
+  //   set align(center)
+  //   if it.kind == "image" {
+  //     set text(size: 1em)
+  //     it.body
+  //     it.supplement
+  //     " " + it.counter.display(it.numbering)
+  //     " " + it.caption.body
+  //     locate(loc => {
+  //       let chapt = counter(heading).at(loc).at(0)
+  //       let c = counter("image-chapter" + str(chapt))
+  //       c.step()
+  //     })
+  //   } else if it.kind == "table" {
+  //     set text(size: 10.5pt)
+  //     it.supplement
+  //     " " + it.counter.display(it.numbering)
+  //     " " + it.caption.body
+  //     set text(size: 10.5pt)
+  //     it.body
+  //     locate(loc => {
+  //       let chapt = counter(heading).at(loc).at(0)
+  //       let c = counter("table-chapter" + str(chapt))
+  //       c.step()
+  //     })
+  //   } else {
+  //     it
+  //   }
+  // }
 
   // ドキュメントのメタデータを設定
   set document(title: title, author: author)
@@ -367,7 +367,7 @@
       // "Hiragino Mincho ProN",
       "HGMinchoB",
     ),
-    size: 10.5pt,
+    size: 10pt,
   )
 
   // ページのプロパティを設定
@@ -489,7 +489,7 @@
   // 参考文献
   if bibliography-file != none {
     show bibliography: set text(8pt, lang: "en")
-    bibliography(bibliography-file, title: "References", style: "ieee")
+    bibliography(bibliography-file, title: "参考", style: "ieee", full: true)
   }
 }
 
