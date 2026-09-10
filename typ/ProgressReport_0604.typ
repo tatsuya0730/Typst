@@ -9,6 +9,7 @@
   author: "Tatsuya Kawaguchi",
   id: "2510414",
   university: "JAIST",
+  os: "mac",
   bibliography-file: "../bib/PR_0604.bib",
 )
 
