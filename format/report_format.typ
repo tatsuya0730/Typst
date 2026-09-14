@@ -225,7 +225,7 @@
             font: gothic-font,
             size: 10pt,
           )[
-            参加者: #participants
+            // 参加者: #participants
           ]
         ]
       ]
